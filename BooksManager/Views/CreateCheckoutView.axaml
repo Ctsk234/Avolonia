@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BooksManager.Views.CreateCheckoutView"
+			 Background="Pink">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+      <ColumnDefinition></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book"></Label>
+    <ComboBox Grid.Column="1" Grid.Row="1" Width="150" Margin="20" ItemsSource="{Binding BookList}" SelectedValue="{Binding Path=CheckoutBook}" VerticalAlignment="Center">
+      <ComboBox.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Text="{Binding Title}" />
+        </DataTemplate>
+      </ComboBox.ItemTemplate>
+    </ComboBox>
+    
+    <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Phone Number"></Label>
+    <TextBox Grid.Column="1" Grid.Row="2" Margin="20" Text="{Binding CheckoutPhoneNumber}"></TextBox>
+    
+    <Label Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Content="From"></Label>
+    <DatePicker Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="20" SelectedDate="{Binding CheckoutFrom}"></DatePicker>
+    
+    <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Content="To"></Label>
+    <DatePicker Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="20" SelectedDate="{Binding CheckoutTo}"></DatePicker>
+
+    <Label Content="{Binding ErrorMessage}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" />
+    <Button Grid.Column="5" Grid.Row="1" Margin="10" Content="Create" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CreateCheckoutCommand}"></Button>
+    <Button Grid.Column="5" Grid.Row="4" Margin="10" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding BackCommand}"></Button>
+
+  </Grid>
+</UserControl>
